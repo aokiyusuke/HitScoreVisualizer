@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
+using Hive.Versioning;
 using Newtonsoft.Json;
 using UnityEngine;
-using Version = SemVer.Version;
 
 namespace HitScoreVisualizer.Settings
 {
@@ -35,16 +35,15 @@ namespace HitScoreVisualizer.Settings
 		// If the version number (excluding patch version) of the config is higher than that of the plugin,
 		// the config will not be loaded. If the version number of the config is lower than that of the
 		// plugin, the file will be automatically converted. Conversion is not guaranteed to occur, or be
-
 		// accurate, across major versions.
 		[JsonProperty("majorVersion", DefaultValueHandling = DefaultValueHandling.Include)]
-		public int MajorVersion { get; private set; } = Plugin.Version.Major;
+		public ulong MajorVersion { get; private set; } = Plugin.Version.Major;
 
 		[JsonProperty("minorVersion", DefaultValueHandling = DefaultValueHandling.Include)]
-		public int MinorVersion { get; private set; } = Plugin.Version.Minor;
+		public ulong MinorVersion { get; private set; } = Plugin.Version.Minor;
 
 		[JsonProperty("patchVersion", DefaultValueHandling = DefaultValueHandling.Include)]
-		public int PatchVersion { get; private set; } = Plugin.Version.Patch;
+		public ulong PatchVersion { get; private set; } = Plugin.Version.Patch;
 
 		[JsonIgnore]
 		internal Version Version
