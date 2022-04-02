@@ -50,7 +50,7 @@ namespace HitScoreVisualizer.Models
 			{
 				_text.text = cutScoreBuffer.cutScore.ToString();
 				_maxCutDistanceScoreIndicator.enabled = cutScoreBuffer.centerDistanceCutScore == cutScoreBuffer.noteScoreDefinition.maxCenterDistanceCutScore;
-				_colorAMultiplier = (double) cutScoreBuffer.cutScore > (double) cutScoreBuffer.maxPossibleCutScore * 0.899999976158142 ? 1f : 0.3f;
+				_colorAMultiplier = (double) cutScoreBuffer.cutScore > (double) cutScoreBuffer.maxPossibleCutScore * 0.9f ? 1f : 0.3f;
 			}
 			else
 			{
