@@ -33,6 +33,10 @@
 			<HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\Main.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
+		<Reference Include="BeatmapCore">
+			<HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\BeatmapCore.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
 		<Reference Include="GameplayCore">
 			<HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\GameplayCore.dll</HintPath>
 			<Private>False</Private>
@@ -77,7 +81,7 @@
 			<HintPath>$(BeatSaberDir)\Plugins\SiraUtil.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
-	</ItemGroup>
+    </ItemGroup>
 
 	<ItemGroup>
 		<None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />

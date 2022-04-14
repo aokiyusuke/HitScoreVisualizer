@@ -46,11 +46,11 @@ namespace HitScoreVisualizer.Models
 				_registeredToCallbacks = true;
 			}
 
-			if (_configuration == null)
+			if (_configuration == null || _noteCutInfo!.Value.noteData.gameplayType is not NoteData.GameplayType.Normal)
 			{
 				_text.text = cutScoreBuffer.cutScore.ToString();
 				_maxCutDistanceScoreIndicator.enabled = cutScoreBuffer.centerDistanceCutScore == cutScoreBuffer.noteScoreDefinition.maxCenterDistanceCutScore;
-				_colorAMultiplier = (double) cutScoreBuffer.cutScore > (double) cutScoreBuffer.maxPossibleCutScore * 0.899999976158142 ? 1f : 0.3f;
+				_colorAMultiplier = (double) cutScoreBuffer.cutScore > (double) cutScoreBuffer.maxPossibleCutScore * 0.9f ? 1f : 0.3f;
 			}
 			else
 			{
@@ -72,7 +72,7 @@ namespace HitScoreVisualizer.Models
 
 		public override void HandleCutScoreBufferDidChange(CutScoreBuffer cutScoreBuffer)
 		{
-			if (_configuration == null)
+			if (_configuration == null || _noteCutInfo!.Value.noteData.gameplayType is not NoteData.GameplayType.Normal)
 			{
 				base.HandleCutScoreBufferDidChange(cutScoreBuffer);
 				return;
@@ -86,7 +86,7 @@ namespace HitScoreVisualizer.Models
 
 		public override void HandleCutScoreBufferDidFinish(CutScoreBuffer cutScoreBuffer)
 		{
-			if (_configuration != null)
+			if (_configuration != null && _noteCutInfo!.Value.noteData.gameplayType is NoteData.GameplayType.Normal)
 			{
 				Judge(cutScoreBuffer);
 			}
